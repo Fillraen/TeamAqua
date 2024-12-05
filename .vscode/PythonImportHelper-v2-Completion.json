@@ -1,0 +1,74 @@
+[
+    {
+        "label": "pygame",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pygame",
+        "description": "pygame",
+        "detail": "pygame",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "random",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "random",
+        "description": "random",
+        "detail": "random",
+        "documentation": {}
+    },
+    {
+        "label": "screen",
+        "kind": 5,
+        "importPath": "moteur.app",
+        "description": "moteur.app",
+        "peekOfCode": "screen = pygame.display.set_mode((WIDTH, HEIGHT))\n# Couleurs\nWHITE = (255, 255, 255)\nBLACK = (0, 0, 0)\n# Dimensions du tableau\nrows, cols = 10, 5\n# Génération du tableau\ntableau = [random.sample([0,0,0, 1, 2], cols) for _ in range(rows)]\n# Affichage du tableau\nfor ligne in tableau:",
+        "detail": "moteur.app",
+        "documentation": {}
+    },
+    {
+        "label": "WHITE",
+        "kind": 5,
+        "importPath": "moteur.app",
+        "description": "moteur.app",
+        "peekOfCode": "WHITE = (255, 255, 255)\nBLACK = (0, 0, 0)\n# Dimensions du tableau\nrows, cols = 10, 5\n# Génération du tableau\ntableau = [random.sample([0,0,0, 1, 2], cols) for _ in range(rows)]\n# Affichage du tableau\nfor ligne in tableau:\n    print(ligne)\n# Boucle principale",
+        "detail": "moteur.app",
+        "documentation": {}
+    },
+    {
+        "label": "BLACK",
+        "kind": 5,
+        "importPath": "moteur.app",
+        "description": "moteur.app",
+        "peekOfCode": "BLACK = (0, 0, 0)\n# Dimensions du tableau\nrows, cols = 10, 5\n# Génération du tableau\ntableau = [random.sample([0,0,0, 1, 2], cols) for _ in range(rows)]\n# Affichage du tableau\nfor ligne in tableau:\n    print(ligne)\n# Boucle principale\nwhile True:",
+        "detail": "moteur.app",
+        "documentation": {}
+    },
+    {
+        "label": "tableau",
+        "kind": 5,
+        "importPath": "moteur.app",
+        "description": "moteur.app",
+        "peekOfCode": "tableau = [random.sample([0,0,0, 1, 2], cols) for _ in range(rows)]\n# Affichage du tableau\nfor ligne in tableau:\n    print(ligne)\n# Boucle principale\nwhile True:\n    for event in pygame.event.get():\n        if event.type == pygame.QUIT:\n            pygame.quit()\n            sys.exit()",
+        "detail": "moteur.app",
+        "documentation": {}
+    },
+    {
+        "label": "character",
+        "kind": 6,
+        "importPath": "moteur.character",
+        "description": "moteur.character",
+        "peekOfCode": "class character:\n    def __init__(self, name):\n        self.name = name\n        self.health = 3\n        self.currentPosition = (0, 0)\n    def move(self):\n        print(f\"{self.name} is moving\")\n    def setHealth(self, health):\n        self.health = health\n    def getHealth(self):",
+        "detail": "moteur.character",
+        "documentation": {}
+    }
+]
