@@ -33,3 +33,10 @@ class Character:
 
     def getScore(self):
         return self.score
+    def setPosition(self, position):
+        self.currentPosition = position
+        
+    def getPosition(self):
+        return self.currentPosition
+    
+    
