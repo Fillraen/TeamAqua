@@ -67,7 +67,7 @@
         "kind": 6,
         "importPath": "moteur.character",
         "description": "moteur.character",
-        "peekOfCode": "class character:\n    def __init__(self, name):\n        self.name = name\n        self.health = 3\n        self.currentPosition = (0, 0)\n    def move(self):\n        print(f\"{self.name} is moving\")\n    def setHealth(self, health):\n        self.health = health\n    def getHealth(self):",
+        "peekOfCode": "class character:\n    def __init__(self, name):\n        self.name = name\n        self.health = 3\n        self.currentPosition = (100, 100)\n    def move(self):\n        print(f\"{self.name} is moving\")\n    def setHealth(self, health):\n        self.health = health\n    def getHealth(self):",
         "detail": "moteur.character",
         "documentation": {}
     }
