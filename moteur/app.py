@@ -18,6 +18,9 @@ YELLOW = (255, 255, 0)  # Couleur pour la valeur 1
 RED = (255, 0, 0)  # Couleur pour la valeur 2
 BLACK = (0, 0, 0)
 
+speed_increase_factor = 0.99  # Facteur de réduction de la vitesse
+min_move_interval = 10  # Limite inférieure pour move_interval
+
 # Dimensions du tableau
 rows, cols = 200, 5  # Augmenter le nombre de lignes à 200
 
@@ -63,9 +66,34 @@ while True:
         # Interagir avec la case actuelle
         cell_value = tableau[current_row_index][player.currentColumn]  # On prend la case actuelle pour l'interaction
         player.interact(cell_value, tableau, current_row_index, player.currentColumn)  # Interagir avec la case
+
+        # Vérifier si le personnage est mort
+        if player.getHealth() <= 0:  # Si la vie est 0 ou moins
+            # Afficher un message de fin de jeu
+            font = pygame.font.Font(None, 74)
+            end_text = font.render("Vous êtes mort!", True, BLACK)
+            screen.blit(end_text, (WIDTH // 2 - end_text.get_width() // 2, HEIGHT // 2 - end_text.get_height() // 2))
+            pygame.display.flip()
+            pygame.time.wait(2000)  # Attendre 2 secondes avant de quitter
+            pygame.quit()
+            sys.exit()
+
+        # Augmenter la vitesse de défilement
+        move_interval = max(min_move_interval, move_interval * speed_increase_factor)  # Réduire move_interval
+
         current_row_index += 1  # Passer à la ligne suivante
-        if current_row_index >= rows:  # Réinitialiser si on atteint la fin du tableau
-            current_row_index = 0
+        
+        # Vérifier si le tableau est terminé
+        if current_row_index >= rows:  # Si on atteint la fin du tableau
+            # Afficher un message de fin de jeu
+            font = pygame.font.Font(None, 74)
+            end_text = font.render("Fin de la partie!", True, BLACK)
+            screen.blit(end_text, (WIDTH // 2 - end_text.get_width() // 2, HEIGHT // 2 - end_text.get_height() // 2))
+            pygame.display.flip()
+            pygame.time.wait(2000)  # Attendre 2 secondes avant de quitter
+            pygame.quit()
+            sys.exit()
+
         move_counter = 0  # Réinitialiser le compteur
         
         # Déplacer le personnage selon le mouvement prévu
@@ -94,7 +122,7 @@ while True:
     # Affichage des données (score et vie)
     font = pygame.font.Font(None, 36)  # Police par défaut
     score_text = font.render(f"Score: {player.getScore()}", True, BLACK)
-    health_text = font.render(f"Vie: {player.getHealth()}", True, BLACK)
+    health_text = font.render(f"Vie: {player .getHealth()}", True, BLACK)
     screen.blit(score_text, (WIDTH - 200, 20))  # Afficher le score en haut à droite
     screen.blit(health_text, (WIDTH - 200, 60))  # Afficher la vie en dessous du score
 
